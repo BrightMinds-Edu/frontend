@@ -23,8 +23,6 @@ const App: React.FC = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/add-question" element={<AddQuestionPage />} />
       </Routes>
-      <p>Message from backend: {message}</p> 
-      {/* TODO: remove this "message" and only for testing purposes */}
     </Router>
   )
 }
