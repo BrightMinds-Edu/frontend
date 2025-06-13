@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import HomePage from './pages/homePage/homePage'
+import AddQuestionPage from './pages/addQuestionPage/addQuestionPage'
 import './App.scss'
 
 const App: React.FC = () => {
-  const [count, setCount] = useState(0)
   const [message, setMessage] = useState<string>('')
 
   useEffect(() => {
-    // Replace with your deployed backend URL
+    // Deployed backend URL
     fetch('https://1vtaztyw35.execute-api.eu-north-1.amazonaws.com/dev/api/data', {
       credentials: 'include',
     })
@@ -18,32 +18,15 @@ const App: React.FC = () => {
   }, [])
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <p>Message from backend: {message}</p>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/add-question" element={<AddQuestionPage />} />
+      </Routes>
+      <p>Message from backend: {message}</p> 
+      {/* TODO: remove this "message" and only for testing purposes */}
+    </Router>
   )
 }
-
-
 
 export default App
