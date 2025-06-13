@@ -1,10 +1,21 @@
-import { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.scss'
 
-function App() {
+const App: React.FC = () => {
   const [count, setCount] = useState(0)
+  const [message, setMessage] = useState<string>('')
+
+  useEffect(() => {
+    // Replace with your deployed backend URL
+    fetch('https://1vtaztyw35.execute-api.eu-north-1.amazonaws.com/dev/api/data', {
+      credentials: 'include',
+    })
+      .then(response => response.json())
+      .then(data => setMessage(data.message))
+      .catch(error => console.error('Error fetching data:', error))
+  }, [])
 
   return (
     <>
@@ -28,6 +39,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <p>Message from backend: {message}</p>
     </>
   )
 }
