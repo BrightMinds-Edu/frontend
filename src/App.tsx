@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import HomePage from './pages/homePage/homePage'
 import AddQuestionPage from './pages/addQuestionPage/addQuestionPage'
 import QuizListPage from './pages/quizListPage/quizListPage'
@@ -27,8 +27,9 @@ const App: React.FC = () => {
     <Router>
         <NavBar />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/home" element={<HomePage />} />
         <Route path="/add-question" element={<AddQuestionPage />} />
           <Route path="/quiz-list" element={<QuizListPage />} />
           <Route path="/quiz/:quizId" element={<QuizQuestionPage />} />

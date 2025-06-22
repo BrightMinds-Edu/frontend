@@ -14,7 +14,7 @@ const LoginPage: React.FC = () => {
     const hardcodedPassword = 'password123';
 
     if (email === hardcodedEmail && password === hardcodedPassword) {
-      navigate('/'); // Redirect to home page after successful login
+      navigate('/home'); // Redirect to home page after successful login
     } else {
       setError('Invalid email or password');
     }
