@@ -10,7 +10,7 @@ const NavBar: React.FC = () => {
       <div className="logo">Bright Minds</div>
       {location.pathname !== '/login' && (
         <ul className="nav-links">
-          <li><a href="/">Home</a></li>
+          <li><a href="/home">Home</a></li>
           <li><a href="/add-question">Add Question</a></li>
         </ul>
       )}
