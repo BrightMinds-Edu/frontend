@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import HomePage from './pages/homePage/homePage'
 import AddQuestionPage from './pages/addQuestionPage/addQuestionPage'
+import NavBar from './components/navBar/navBar'
+import Footer from './components/footer/footer'
 import './App.scss'
 
 const App: React.FC = () => {
@@ -18,10 +20,12 @@ const App: React.FC = () => {
 
   return (
     <Router>
+      <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/add-question" element={<AddQuestionPage />} />
       </Routes>
+      <Footer />
     </Router>
   )
 }
