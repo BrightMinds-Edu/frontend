@@ -235,11 +235,11 @@ export default function HomePage() {
             <h2 style={styles.cardTitle}>Suggested Quizzes</h2>
             <div style={styles.quizGrid}>
               {[
-                { subject: "Maths", topic: "Algebra Basics", icon: "📊" },
-                { subject: "English", topic: "Grammar Practice", icon: "📚" },
+                { subject: "Maths", topic: "Multiplication", icon: "📊" },
+                { subject: "English", topic: "Spelling practice", icon: "📚" },
                 {
                   subject: "Environment",
-                  topic: "Pollution Awareness",
+                  topic: "Geography",
                   icon: "🌱",
                 },
               ].map((quiz, idx) => (

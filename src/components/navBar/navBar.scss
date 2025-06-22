@@ -3,28 +3,137 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #2196f3;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  height: 60px;
+  height: 40px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   .nav-links {
     list-style: none;
     display: flex;
-    gap: 1rem;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
 
-    li a {
-      color: white;
-      text-decoration: none;
-      font-size: 1rem;
+    li {
+      position: relative;
 
-      &:hover {
-        text-decoration: underline;
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 0.75rem 1.25rem;
+        border-radius: 0.75rem;
+        transition: all 0.2s ease;
+        display: block;
+        position: relative;
+        overflow: hidden;
+
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 0.75rem;
+          opacity: 0;
+          transform: scale(0.8);
+          transition: all 0.2s ease;
+        }
+
+        &:hover {
+          text-decoration: none;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+          &:before {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
+
+        // Active state for current page
+        &.active {
+          background: rgba(255, 255, 255, 0.2);
+          font-weight: 600;
+          
+          &:before {
+            opacity: 1;
+            transform: scale(1);
+            background: rgba(255, 255, 255, 0.1);
+          }
+        }
       }
     }
+  }
+
+  // Responsive design
+  @media (max-width: 768px) {
+    padding: 1rem 1.5rem;
+    height: 60px;
+
+    .logo {
+      font-size: 1.5rem;
+    }
+
+    .nav-links {
+      gap: 0.25rem;
+
+      li a {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+    gap: 1rem;
+
+    .nav-links {
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+// Optional: Add a subtle animation when the navbar loads
+.nav-bar {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
