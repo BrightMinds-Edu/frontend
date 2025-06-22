@@ -5,6 +5,7 @@ import QuizListPage from './pages/quizListPage/quizListPage'
 import QuizQuestionPage from './pages/quizQuestionPage/quizQuestionPage'
 import QuizResultsPage from './pages/quizResultsPage/quizResultsPage'
 import QuizReviewPage from './pages/quizReviewPage/quizReviewPage'
+import LoginPage from './pages/loginPage/loginPage'
 import NavBar from './components/navBar/navBar'
 import Footer from './components/footer/footer'
 import './App.scss'
@@ -27,6 +28,7 @@ const App: React.FC = () => {
         <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/add-question" element={<AddQuestionPage />} />
           <Route path="/quiz-list" element={<QuizListPage />} />
           <Route path="/quiz/:quizId" element={<QuizQuestionPage />} />
