@@ -46,9 +46,43 @@
       }
     }
 
+    .google-login {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background-color: #fff;
+      color: #000;
+      border: 1px solid #e0e0e0;
+
+      &:hover {
+        background-color: #f5f5f5;
+      }
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
     .error {
       color: #ff0000;
       text-align: center;
+    }
+
+    .signup-text {
+      text-align: center;
+      color: #666;
+
+      span {
+        color: #2196f3;
+        cursor: pointer;
+        text-decoration: underline;
+
+        &:hover {
+          color: #1976d2;
+        }
+      }
     }
   }
 }
