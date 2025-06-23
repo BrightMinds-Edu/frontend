@@ -1,6 +1,7 @@
 import React, { CSSProperties, useState } from "react";
 import { Card } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 interface Quiz {
   subject: string;
@@ -218,7 +219,12 @@ const styles = {
 };
 
 export default function HomePage() {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<Tab>("Take a quiz");
+
+  const startQuiz = (quizId: number) => {
+    navigate(`/quiz/${quizId}`);
+  };
 
   const getScoreColor = (score: number) => {
     if (score >= 90) return "#22c55e";
@@ -235,7 +241,7 @@ export default function HomePage() {
             <h2 style={styles.cardTitle}>Suggested Quizzes</h2>
             <div style={styles.quizGrid}>
               {[
-                { subject: "Maths", topic: "Multiplication", icon: "📊" },
+                { subject: "Maths", topic: "Genaral mathematics", icon: "📊" },
                 { subject: "English", topic: "Spelling practice", icon: "📚" },
                 {
                   subject: "Environment",
@@ -258,6 +264,9 @@ export default function HomePage() {
                     e.currentTarget.style.transform = "translateY(0)";
                     e.currentTarget.style.boxShadow =
                       "0 4px 15px rgba(102, 126, 234, 0.3)";
+                  }}
+                  onClick={(e) => {
+                    startQuiz(1);
                   }}
                 >
                   <div style={{ fontSize: "2rem", marginBottom: "0.75rem" }}>
